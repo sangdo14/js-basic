@@ -1,56 +1,89 @@
 /*
-자바스크립트에서의 형변환
-기본 자료형이 변견되는 현상
-- 문자열 --> 숫자화
-- 숫자 --> 문자화
+  DOM스크립트
 
-실무에서 형변환이 일어나는 대표적 사례
-문자 + 숫자를 더했을때 더해지는 숫자(변수)값이 자동으로 문자화 되는 현상
+  DOM (Document Object Model)
+  -html태그를 브라우져가 해석해서 자바스크립트가 제어 가능한 형태로 변환된 객체
+
+  1. DOM선택
+  2. DOM 정보 출력
+  3. DOM 텍스트 정보 변경
+  4. DOM 스타일 정보 변경
+  5. DOM 속성 정보 변경
+  6. DOM에 이벤트 연결
 */
 
-//숫자가 문자화되는 대표적인 예시
-// let str = '1';
-// let num1 = 1;
-// let num2 = 2;
-// console.log(str + num1 + num2);
-// console.log(num1 + num2 + str);
+// h1 태그 요소를 돔스크립트로 선택
+// const h1 = document.querySelector('h1');
+// const link = document.querySelector('a');
+// console.log(h1);
+// console.dir(h1);
+// console.dir(link);
 
-//변수가 문자화되는 대표적인 예시
-// let myName = '남상도';
-// console.log('제 이름은 ' + myName + '입니다.');
+//DOM의 텍스트 변경
+// h1.innerText = '김영희';
+// h1.innerHTML = '<span>김판섭</span>';
 
-//위와 같은 번거로움을 개선하고자 ES6에서는 문자열 템플릿 문법이 생김
-// console.log(`제 이름은 ${myName}입니다.`);
+//DOM스타일 변경
+// h1.style.color = 'aqua';
+
+//DOM 속성 변경
+
+// const span = document.querySelector('span');
+// console.dir(span);
+// span.style.color = 'red';
 
 /*
-  문자를 숫자로 형변환 처리:
-  parseInt(문자화된 숫자) : 정수 변환
-  parseFloat(문자화된 숫자) : 실수 변환
+  이벤트 (event)
+  - 웹상에서 사용자, 혹은 시스템에 일으키는 행동
+
+  사용자 이벤트
+  -click, mouseenter, mouseleave, scroll, resize
+
+  시스템 이벤트
+  - load, error, pending, fulfilled, rejected
+
+  이벤트 연결 (이벤트 바인딩)
+  DOM.addEventListener('이벤트명', 이벤트 핸들러)
+*/
+
+const h1 = document.querySelector('h1');
+const a = document.querySelector('a');
+const btn1 = document.querySelector('.btn1');
+const btn2 = document.querySelector('.btn2');
+const btn3 = document.querySelector('.btn3');
+console.dir(h1);
+console.dir(a);
+
+// h1.addEventListener('click', () => {
+//   console.log('h1 요소 클릭');
+// });
+
+/*
+  미션1 - btn1클릭시 h1요소의 텍스트를 김영희로 변경
+  미션2 - btn2클릭시 h1요소의 글자색을 orange로 변경
+  미션3 - btn3클릭시 링크 정보 네이트로 변경
+*/
+
+btn1.addEventListener('click', () => {
+  h1.innerText = '김영희';
+});
+
+btn2.addEventListener('click', () => {
+  h1.style.color = 'orange';
+});
+
+btn3.addEventListener('click', () => {
+  a.innerText = '네이트';
+  a.href = 'https://www.nate.com/';
+  a.target = '_blank';
+});
+
+/*
 
 */
-let num = '3.5';
-console.log(typeof num);
+const btns = document.querySelectorAll('button');
+console.log(btns);
 
-//문자화된 숫자값을 정수로 형변환하여 다시 num변수에 재할당
-let num3 = parseFloat(num);
-console.log(typeof num3);
-console.log(num3);
-
-let num4 = parseFloat(num);
-console.log(typeof num4);
-console.log(num4);
-
-let num2 = parseInt(num3);
-console.log(typeof num2);
-console.log(num2);
-
-const userInfo = (name, age, gender) => {
-  if (!name || !age || !gender) {
-    console.error(`올바른 정보를 입력하세요.`);
-  } else {
-    console.log(`${name}님의 나이는 ${age}이고 성별은 ${gender}입니다.`);
-  }
-};
-
-userInfo('백설공주', '17', '여성');
-userInfo('남상도', '37');
+btns[0].addEventListener('click', () => {
+  h1.innerText = '김영희';
+});
