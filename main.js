@@ -17,28 +17,55 @@
 */
 
 // plus란 이름의 선언적 함수 생성
-function plus(n1, n2) {
-  let result = n1 + n2;
-  console.log(result);
+// function plus(n1, n2) {
+//   let result = n1 + n2;
+//   console.log(result);
+// }
+
+// const minus = function (num1, num2) {
+//   console.log(num1 - num2);
+// };
+
+// // es6버전의 정의형 함수 (화살표함수: Arrow function)
+// const divider = (n1, n2) => {
+//   let result = n1 / n2;
+//   console.log(result);
+// };
+
+/*
+  조건문
+: 조건식을 만들어서 조건식이 ture, false인지에 따라서 코드 분기처리하는 식
+
+if(조건식1){
+  조건식1이 참이면 이 코드블록 안쪽의 구문이 실행되면서 조건문 종료
+  조건식1이 거짓이면 다음 조건식2로 넘어감
+}else if(조건식2){
+  조건식2가 참이면 이 코드블록 안쪽의 구문이 실행되면서 조건문 종료
+  조건식2가 거짓이면 다음 조건식2로 넘어감
+}else {
+  만약 위의 조건식이 거짓이면 이곳의 구문을 실행하고 조건문 강제 종료
 }
+*/
 
-const minus = function (num1, num2) {
-  console.log(num1 - num2);
-};
+const calculator = (n1, n2, how) => {
+  let result;
+  if (how === '+') {
+    result = n1 + n2;
+  } else if (how === '-') {
+    result = n1 - n2;
+  } else if (how === '*') {
+    result = n1 * n2;
+  } else if (how === '/') {
+    result = n1 / n2;
+  } else {
+    result = '산술 기호를 잘못 입력하셨습니다.';
+  }
 
-// es6버전의 정의형 함수 (화살표함수: Arrow function)
-const divider = (n1, n2) => {
-  let result = n1 / n2;
   console.log(result);
 };
 
-const multiple = (n1, n2) => {
-  console.log(n1 * n2);
-};
-
-// 함수호출
-plus(2, 3);
-plus(345, 1234);
-minus(3, 2);
-divider(4, 2);
-multiple(10, 10);
+calculator(9, 3, '+');
+calculator(9, 3, '-');
+calculator(9, 3, '*');
+calculator(9, 3, '/');
+calculator(9, 3, '');
