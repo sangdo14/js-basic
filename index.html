@@ -1,16 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-  <link rel="stylesheet" href="style.css">
-  <script src="main.js"></script>
-</head>
-
-<body>
-
-</body>
-
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+    <script defer src="main.js"></script>
+  </head>
+  <!--
+js파일을 defer방식으로 가져오면 js파일 세션과 화면 렌더링을 병렬식으로 동시에 실행
+js파일이 먼저 해석완료 되더라도 브라우저의 렌더링이 끝날때까지 호출 시점을 자동 지연 처리
+-->
+  <body>
+    <h1>title</h1>
+  </body>
 </html>
