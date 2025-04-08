@@ -1,12 +1,13 @@
-const box = document.querySelector('.box');
-const btns = document.querySelectorAll('button');
+const btnCall = document.querySelector('.btnCall');
+const mobileMenu = document.querySelector('.mobileMenu');
+const btnClose = document.querySelector('.btnClose');
 
-let count = 0;
-
-btns[0].addEventListener('click', () => {
-  box.style.transform = `rotate(${--count * 30}deg)`;
+//메뉴 활성화 처리 이벤트
+btnCall.addEventListener('click', () => {
+  mobileMenu.classList.add('on');
 });
 
-btns[1].addEventListener('click', () => {
-  box.style.transform = `rotate(${++count * 30}deg)`;
+//메뉴 비활성화 처리 이벤트
+btnClose.addEventListener('click', () => {
+  mobileMenu.classList.remove('on');
 });
